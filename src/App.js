@@ -92,12 +92,16 @@ const PostList = ({ posts }) => (
   </div>
 );
 
-const Sidebar = () => (
+const Sidebar = () => {
+  // Get the base URL from homepage in package.json, or fall back to empty string
+  const BASE_URL = process.env.PUBLIC_URL || '';
+
+  return (
   <aside className="w-64 shrink-0">
     <div className="sticky top-8">
       <div className="mb-8">
         <img 
-          src="/profile.png"
+          src={`${BASE_URL}/profile.png`}
           alt="Profile" 
           className="rounded-full w-32 h-32 mb-4"
         />
@@ -112,7 +116,8 @@ const Sidebar = () => (
       </div>
     </div>
   </aside>
-);
+  );
+};
 
 // Helper function for navigation
 const navigateTo = (path) => {
